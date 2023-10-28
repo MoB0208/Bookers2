@@ -12,41 +12,71 @@
   </head>
 
   <body>
-    <header>
-      <span>Bookers</span>
+    <header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
 
-      <li>
-        <%= link_to "Home", "/" %>
+      <li class="nav-item">
+       <span><%= link_to "Bookers", "/", class: 'nav-link text-white' %></span>
       </li>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+
+
+
 
       <% if user_signed_in? %>
 
-      <li>
-        <%= link_to "Users", users_index_path %>
+      <li class="nav-item">
+        <%= link_to "/", class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-home"></i>
+          <!-- <i class="fa-solid fa-home"></i> Font Awesome fontawesome.com -->
+          Home
+          <% end %>
       </li>
 
-      <li>
-        <%= link_to "Books", books_path %>
+      <li class="nav-item">
+        <%= link_to "Users", users_path, class: 'nav-link text-white' %>
       </li>
 
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <li class="nav-item">
+        <%= link_to "Books", books_path, class: 'nav-link text-white' %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
       </li>
       <% else %>
 
-      <li>
-        <%= link_to "About", "about" %>
+      <li class="nav-item">
+        <%= link_to "Home", new_user_registration_path, class: 'nav-link text-white' %>
       </li>
 
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
+      <li class="nav-item">
+        <%= link_to "About", "about", class: 'nav-link text-white' %>
       </li>
 
-      <li>
-        <%= link_to "Log in", new_user_session_path %>
+      <li class="nav-item">
+        <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %>
       </li>
     <% end %>
-  </header>
+    </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+  <main>
+    <%= yield %>
+  </main>
 
   <footer>
     <div class="container mt-5">
@@ -58,6 +88,5 @@
     </div>
   </footer>
 
-    <%= yield %>
   </body>
 </html>
