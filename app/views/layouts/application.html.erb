@@ -34,38 +34,58 @@
       <li class="nav-item">
         <%= link_to "/", class: 'nav-link text-white' do %>
           <i class="fa-solid fa-home"></i>
-          <!-- <i class="fa-solid fa-home"></i> Font Awesome fontawesome.com -->
           Home
-          <% end %>
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "Users", users_path, class: 'nav-link text-white' %>
+        <%= link_to users_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-users"></i>
+          Users
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "Books", books_path, class: 'nav-link text-white' %>
+        <%= link_to books_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-book-open"></i>
+          Books
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
+        <%= link_to "/", method: :delete, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-sign-out-alt"></i>
+          Log out
+        <% end %>
       </li>
       <% else %>
 
       <li class="nav-item">
-        <%= link_to "Home", new_user_registration_path, class: 'nav-link text-white' %>
+        <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-home"></i>
+            Home
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "About", "about", class: 'nav-link text-white' %>
+        <%= link_to "/homes/about", class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-link"></i>
+            About
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-white' %>
+        <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-user-plus"></i>
+            Sign up
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "Log in", new_user_session_path, class: 'nav-link text-white' %>
+        <%= link_to new_user_session_path, class: 'nav-link text-white' do %>
+          <i class="fa-solid fa-sign-in-alt"></i>
+            Log in
+        <% end %>
       </li>
     <% end %>
     </ul>
