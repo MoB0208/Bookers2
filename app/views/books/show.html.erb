@@ -1,18 +1,17 @@
 <%= render 'info', user: @user, book: @new_book %>
-
 <div class="col-md-8 offset-md-1">
   		<h2>Book detail</h2>
   		<table class="table">
   		  <tbody>
   		    <tr>
   		      <td>
-  		        <%= image_tag post_image.user.get_profile_image(100,100) %>
-  		        <%= link_to user_path(u.id) %>
+  		        <%= image_tag @user.get_profile_image(100,100) %>
+  		        <%= link_to @user.name, user_path(@user.id) %>
   		      </td>
 
   		      <% @books.each do |book| %>
 
-  		      <td><%= book.title %></td>
+  		      <td><%= link_to book.title, book_path(@book.id) %></td>
             <td><%= book.body %></td>
           </tr>
         </tbody>
