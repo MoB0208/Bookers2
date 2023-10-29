@@ -1,4 +1,4 @@
-<%= render 'info', user: @user, book: @new_book %>
+<%= render 'users/info', user: @user, book: @new_book %>
 <div class="col-md-8 offset-md-1">
   		<h2>Book detail</h2>
   		<table class="table">
@@ -11,8 +11,9 @@
 
   		      <% @books.each do |book| %>
 
-  		      <td><%= link_to book.title, book_path(@book.id) %></td>
+  		      <td><%= link_to book.title, book_path(book.id) %></td>
             <td><%= book.body %></td>
+            <% end %>
           </tr>
         </tbody>
       </table>

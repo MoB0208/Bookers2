@@ -32,7 +32,7 @@
       <% if user_signed_in? %>
 
       <li class="nav-item">
-        <%= link_to "/", class: 'nav-link text-white' do %>
+        <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
           <i class="fa-solid fa-home"></i>
           Home
         <% end %>
@@ -61,7 +61,7 @@
       <% else %>
 
       <li class="nav-item">
-        <%= link_to new_user_registration_path, class: 'nav-link text-white' do %>
+        <%= link_to root_path, class: 'nav-link text-white' do %>
           <i class="fa-solid fa-home"></i>
             Home
         <% end %>
