@@ -1,5 +1,5 @@
-<div><%= flash[:notice] %></div>
 <div class="col-md-3">
+  <div><%= flash[:notice] %></div>
   <h2>User info</h2>
   <%= image_tag user.get_profile_image(100,100) %>
   <table class="table">
@@ -32,8 +32,6 @@
     <p>Opinion</p>
     <%= f.text_area :body %>
 
-    <div class="btn btn-success">
-      <%= f.submit 'Create Book' %>
-    </div>
+    <%= f.submit 'Create Book', class: "btn btn-success" %>
     <% end %>
 </div>
