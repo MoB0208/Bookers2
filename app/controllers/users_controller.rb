@@ -1,4 +1,15 @@
 class UsersController < ApplicationController
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      # 保存成功の処理
+    else
+      # 保存失敗の処理
+      flash.now[:error] = @user.errors.full_messages  # エラーメッセージをフラッシュに設定する例
+      render :new
+    end
+  end
+
   def index
     @user = current_user
     @new_book = Book.new
@@ -25,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
   def is_matching_login_user
