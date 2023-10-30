@@ -4,14 +4,14 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>User info</h2>
 
-      <% if @book.errors.any? %>
+      <% if @user.errors.any? %>
 
-      <%= @book.errors.count %>error prohibited this obj from being saved:
+      <%= @user.errors.count %>error prohibited this obj from being saved:
       <ul>
-        <% @book.errors.full_messages.each do |message| %>
+      <% @user.errors.full_messages.each do |message| %>
 
-        <li><%= message %></li>
-        <% end %>
+      <li><%= message %></li>
+      <% end %>
       </ul>
       <% end %>
 
