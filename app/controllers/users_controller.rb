@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update]
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -30,10 +32,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    unless @user.id == current_user.id
-      redirect_to user_path(current_user.id)
-    end
-    redirect_to user_path(@user.id)
   end
 
 
@@ -46,7 +44,7 @@ class UsersController < ApplicationController
   def is_matching_login_user
     user = User.find(params[:id])
     unless user.id == current_user.id
-      redirect_to post_images_path
+      redirect_to user_path(current_user.id)
     end
   end
 end
