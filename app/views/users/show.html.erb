@@ -15,7 +15,7 @@
   		        <%= link_to @user.name, user_path %>
   		      </td>
 
-  		      <td><%= link_to book.title, user_path %></td>
+  		      <td><%= link_to book.title, book_path(book.id) %></td>
             <td><%= book.body %></td>
 
             <% if book.user == current_user %>
